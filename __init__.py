@@ -1,5 +1,5 @@
 bl_info = {
-    "name": "Autobake",
+    "name": "Autobake Tools",
     "description": "Autobake Tools",
     "author": "Igor Subachev",
     "version": (1,0),
