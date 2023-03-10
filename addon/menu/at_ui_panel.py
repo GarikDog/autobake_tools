@@ -38,8 +38,10 @@ class VIEW3D_PT_Autobake(Panel):
         
         box.operator("at.create_environment")
 
-        box.column().prop(attool, "bevel_samples_prop_int", text="Bevel Samples")
-        box.column().prop(attool, "bevel_radius_prop_float", text="Bevel Radius (n)")
-        box.column().prop(attool, "image_width_prop_int", text="Image Width")
-        box.column().prop(attool, "image_height_prop_int", text="Image Height")
+        layout.column().prop(attool, "bevel_samples_prop_int", text="Bevel Samples")
+        layout.column().prop(attool, "bevel_radius_prop_float", text="Bevel Radius (m)")
+        layout.column().prop(attool, "image_width_prop_int", text="Image Width")
+        layout.column().prop(attool, "image_height_prop_int", text="Image Height")
+        
+        box = layout.box()
         
