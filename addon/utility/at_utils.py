@@ -49,3 +49,5 @@ def create_mat_env():
         
     print ("Object active material is", obj.active_material)
     
+def create_shader_editor_env():
+    return()
