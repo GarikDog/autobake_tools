@@ -48,3 +48,4 @@ def create_mat_env():
            bpy.context.active_object.active_material.use_nodes = True
         
     print ("Object active material is", obj.active_material)
+    
