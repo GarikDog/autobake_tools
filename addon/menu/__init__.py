@@ -1,6 +1,6 @@
 import bpy
 
-from .ui_panel import VIEW3D_PT_Autobake
+from .at_ui_panel import VIEW3D_PT_Autobake
 
 classes = (
     VIEW3D_PT_Autobake,

@@ -18,10 +18,9 @@ class VIEW3D_PT_Autobake(Panel):
         layout = self.layout
 
         box = layout.box()
-        box.operator("object.select_all").action = 'TOGGLE'
-        row = box.row()
-        row.operator("object.select_all").action = 'INVERT'
-        row.operator("object.select_random")
+        box.operator("at.create_environment")
+        box.operator("material.new")
+
 
 '''    def draw(self, context):
         self.layout.label(text="Autobake HERE!")'''
