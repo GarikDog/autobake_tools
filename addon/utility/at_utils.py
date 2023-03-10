@@ -75,3 +75,27 @@ def create_shader_editor_env():
     
     # Link nodes
     links.new(bevel_node.outputs[0], shader_node.inputs[22])
+
+def create_image():
+    obj = bpy.context.active_object
+    images = bpy.data.images
+    image_names = []
+    count_suffix = int(1)
+    image_name = (obj.name)+'_n'
+    
+    
+    
+    for image in images:
+        image_names.append(image.name)
+        image_name = (obj.name)+'_'+str(count_suffix)+'_n'
+        
+        if image_name == image.name:
+            count_suffix = count_suffix + 1
+            
+    
+
+        
+
+    bpy.ops.image.new(name=(image_name),width=1024, height=1024)
+    
+    

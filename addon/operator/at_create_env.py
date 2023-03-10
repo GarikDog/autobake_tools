@@ -2,7 +2,7 @@ import bpy
 from bpy.types import Operator
 
 from ..utility.at_utils import (create_mat_env, create_render_env_n,
-                                create_shader_editor_env)
+                                create_shader_editor_env, create_image)
 
 
 class AT_OP_Create_Environment(Operator):
@@ -15,4 +15,5 @@ class AT_OP_Create_Environment(Operator):
         create_render_env_n()
         create_mat_env()
         create_shader_editor_env()
+        create_image()
         return{'FINISHED'}

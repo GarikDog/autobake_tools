@@ -1,4 +1,6 @@
 import bpy
+
+from gpu_extras.presets import draw_texture_2d
 from bpy.types import Menu, Panel, UIList
 from ..property.at_properties import AT_Properties
 
@@ -44,4 +46,7 @@ class VIEW3D_PT_Autobake(Panel):
         layout.column().prop(attool, "image_height_prop_int", text="Image Height")
         
         box = layout.box()
+        #draw_texture_2d(texture, position, width, height)
+
+                
         
