@@ -10,6 +10,14 @@ class VIEW3D_PT_Autobake(Panel):
     bl_category = "Autobake Tools"
     
     
+    @classmethod
+    
+    def poll(cls, context):
+        if context.active_object != None:
+            if context.active_object.type == 'MESH':
+                return True
+        return False
+    
 
     def draw_header(self, context):
         layout = self.layout

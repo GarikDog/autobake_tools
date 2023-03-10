@@ -1,7 +1,7 @@
 import bpy
 from bpy.types import Operator
 
-from ..utility.at_utils import create_render_env
+from ..utility.at_utils import create_mat_env, create_render_env_n
 
 
 class AT_OP_Create_Environment(Operator):
@@ -11,5 +11,6 @@ class AT_OP_Create_Environment(Operator):
     
     
     def execute(self, context):
-        create_render_env()
+        create_render_env_n()
+        create_mat_env()
         return{'FINISHED'}
