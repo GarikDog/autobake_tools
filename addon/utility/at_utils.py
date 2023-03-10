@@ -34,14 +34,17 @@ def create_render_env_n():
     print ("Selected to Active setted to", scn.render.bake.use_selected_to_active)
         
 def create_mat_env():
-    print ("CREATING MAT ENV")
     obj = bpy.context.active_object
-    matname = 'baker_material'
-
+    
     #create new material if there are not mat on obj
     if obj.active_material == None:
+        matname = 'baker_material'
         mat = bpy.data.materials.new(matname)
-        mat.use_nodes = True
         obj.data.materials.append(mat)
+    
+    #Set Use Nodes if obj arlready have a material
+    if obj.active_material != None:
+       if bpy.context.active_object.active_material.use_nodes == False:
+           bpy.context.active_object.active_material.use_nodes = True
         
-    print (obj.active_material)
+    print ("Object active material is", obj.active_material)
