@@ -1,5 +1,6 @@
 import bpy
 from bpy.types import Menu, Panel, UIList
+from ..property.at_properties import AT_Properties
 
 
 class VIEW3D_PT_Autobake(Panel):
@@ -19,16 +20,26 @@ class VIEW3D_PT_Autobake(Panel):
         return False
     
 
-    def draw_header(self, context):
-        layout = self.layout
 
     def draw(self, context):
+        
         layout = self.layout
-
+        scene = context.scene
+        attool = scene.at_tool
+        
+        obj = context.object
+        bevel_samples = int(8)
+        bevel_radius = float(0.05)
+        image_width = int(2048)
+        image_height = int(2048)
+        
         box = layout.box()
+        row = layout.split(factor=0.5, align=False)
+        
         box.operator("at.create_environment")
-        box.operator("material.new")
 
-
-'''    def draw(self, context):
-        self.layout.label(text="Autobake HERE!")'''
+        box.column().prop(attool, "bevel_samples_prop_int", text="Bevel Samples")
+        box.column().prop(attool, "bevel_radius_prop_float", text="Bevel Radius (n)")
+        box.column().prop(attool, "image_width_prop_int", text="Image Width")
+        box.column().prop(attool, "image_height_prop_int", text="Image Height")
+        
