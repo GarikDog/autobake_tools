@@ -49,5 +49,29 @@ def create_mat_env():
         
     print ("Object active material is", obj.active_material)
     
+# set node location
+
+def setNodeLocation(node, x, y):
+    if node.location:
+        node.location = x, y
+
 def create_shader_editor_env():
-    return()
+    
+    # Get nodes from node tree and clear
+    nodes = bpy.context.active_object.active_material.node_tree.nodes
+    nodes.clear()
+    
+    
+        
+    # Create nodes and place in correct location
+    shader_node = nodes.new("ShaderNodeBsdfPrincipled")
+    bevel_node = nodes.new("ShaderNodeBevel")
+    setNodeLocation(bevel_node, -300, -565)
+    image_texture_node = nodes.new("ShaderNodeTexImage")
+    setNodeLocation(image_texture_node, -600, 0)
+
+    # Get node links
+    links = bpy.context.active_object.active_material.node_tree.links
+    
+    # Link nodes
+    links.new(bevel_node.outputs[0], shader_node.inputs[22])
