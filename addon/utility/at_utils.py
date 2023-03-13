@@ -51,7 +51,7 @@ def create_mat_env():
 
 
 
-def create_image():
+def create_image_name():
     
     scene = bpy.context.scene
     attool = scene.at_tool
@@ -75,7 +75,9 @@ def create_image():
         if image_name == image.name:
             count_suffix = count_suffix + 1
             
-    bpy.ops.image.new(name=(image_name),width=im_width, height=im_height, generated_type='COLOR_GRID')
+    #!!!!!!!!!!bpy.ops.image.new(name=(image_name),width=im_width, height=im_height, generated_type='COLOR_GRID')
+    
+    # Set current texture name to the custom property
     attool.at_image_name = image_name
     
     
@@ -115,6 +117,21 @@ def create_shader_editor_env():
     links.new(shader_node.outputs[0], mat_output.inputs[0])
     
     
-    # Link texture by name from custom property
+    '''# Link texture by name from custom property
     if attool.at_image_name != "":
-        image_texture_node.image = bpy.data.images.get(attool.at_image_name)
+        image_texture_node.image = bpy.data.images.get(attool.at_image_name)'''
+        
+def bevel_samples_setting ():
+    nodes = bpy.context.active_object.active_material.node_tree.nodes
+    
+    bevel_node = nodes.get("Bevel")
+    scene = bpy.context.scene
+    attool = scene.at_tool
+    attool = scene.at_tool
+    bevel_node.samples = attool.bevel_samples_prop_int
+    print (bevel_node.samples)
+    
+    
+    
+    
+    

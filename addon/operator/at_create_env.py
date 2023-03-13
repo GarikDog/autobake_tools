@@ -2,7 +2,7 @@ import bpy
 from bpy.types import Operator
 
 from ..utility.at_utils import (create_mat_env, create_render_env_n,
-                                create_shader_editor_env, create_image)
+                                create_shader_editor_env, bevel_samples_setting)
 
 
 
@@ -17,13 +17,14 @@ class AT_OP_Create_Environment(Operator):
         atobjtool = obj.at_objtool
         create_render_env_n()
         create_mat_env()
-        create_image()
         create_shader_editor_env()
+        bevel_samples_setting()
         
         
         # Setting the value for custom statement property
         atobjtool.prepare_statement_prop_bool = True
         return{'FINISHED'}
+    
     
     
 

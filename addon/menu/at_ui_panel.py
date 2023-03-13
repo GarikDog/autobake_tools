@@ -2,6 +2,9 @@ import bpy
 
 from gpu_extras.presets import draw_texture_2d
 from bpy.types import Menu, Panel, UIList
+from ..operator.at_node_value_setter import AT_OP_node_value_setter
+
+
 
 
 class VIEW3D_PT_Autobake(Panel):
@@ -20,20 +23,16 @@ class VIEW3D_PT_Autobake(Panel):
                 return True
         return False
     
-
+    
+    def invoke(self, context, event):
+        return {'RUNNING_MODAL'}
+    
 
     def draw(self, context):
         
         layout = self.layout
-        scene = context.scene
+        scene = bpy.context.scene
         attool = scene.at_tool
-        
-        obj = context.object
-        bevel_samples = int(8)
-        bevel_radius = float(0.05)
-        image_width = int(2048)
-        image_height = int(2048)
-        
        
         
 
@@ -48,4 +47,3 @@ class VIEW3D_PT_Autobake(Panel):
         box.operator("at.create_environment")
         box.operator("at.bake")
                 
-        
