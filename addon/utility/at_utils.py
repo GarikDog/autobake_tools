@@ -63,11 +63,15 @@ def create_shader_editor_env():
     
     
         
-    # Create nodes and place in correct location
+    # Create nodes
     shader_node = nodes.new("ShaderNodeBsdfPrincipled")
+    mat_output = nodes.new('ShaderNodeOutputMaterial')
     bevel_node = nodes.new("ShaderNodeBevel")
-    setNodeLocation(bevel_node, -300, -565)
     image_texture_node = nodes.new("ShaderNodeTexImage")
+    
+    # Place nodes in correct position
+    setNodeLocation(mat_output, 300, 25)
+    setNodeLocation(bevel_node, -300, -565)
     setNodeLocation(image_texture_node, -600, 0)
 
     # Get node links
@@ -75,6 +79,7 @@ def create_shader_editor_env():
     
     # Link nodes
     links.new(bevel_node.outputs[0], shader_node.inputs[22])
+    links.new(shader_node.outputs[0], mat_output.inputs[0])
 
 def create_image():
     obj = bpy.context.active_object
