@@ -35,10 +35,8 @@ class VIEW3D_PT_Autobake(Panel):
         image_width = int(2048)
         image_height = int(2048)
         
-        box = layout.box()
-        row = layout.split(factor=0.5, align=False)
+       
         
-        box.operator("at.create_environment")
 
         layout.column().prop(attool, "bevel_samples_prop_int", text="Bevel Samples")
         layout.column().prop(attool, "bevel_radius_prop_float", text="Bevel Radius (m)")
@@ -46,7 +44,9 @@ class VIEW3D_PT_Autobake(Panel):
         layout.column().prop(attool, "image_height_prop_int", text="Image Height")
         
         box = layout.box()
-        #draw_texture_2d(texture, position, width, height)
-
+        row = layout.split(factor=0.5, align=False)
+        
+        box.operator("at.create_environment")
+        box.operator("object.bake")
                 
         
