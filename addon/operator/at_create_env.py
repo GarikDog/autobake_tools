@@ -17,8 +17,9 @@ class AT_OP_Create_Environment(Operator):
         atobjtool = obj.at_objtool
         create_render_env_n()
         create_mat_env()
-        create_shader_editor_env()
         create_image()
+        create_shader_editor_env()
+        
         
         # Setting the value for custom statement property
         atobjtool.prepare_statement_prop_bool = True

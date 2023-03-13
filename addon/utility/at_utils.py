@@ -48,38 +48,8 @@ def create_mat_env():
            bpy.context.active_object.active_material.use_nodes = True
         
     print ("Object active material is", obj.active_material)
-    
-# set node location
 
-def setNodeLocation(node, x, y):
-    if node.location:
-        node.location = x, y
 
-def create_shader_editor_env():
-    
-    # Get nodes from node tree and clear
-    nodes = bpy.context.active_object.active_material.node_tree.nodes
-    nodes.clear()
-    
-    
-        
-    # Create nodes
-    shader_node = nodes.new("ShaderNodeBsdfPrincipled")
-    mat_output = nodes.new('ShaderNodeOutputMaterial')
-    bevel_node = nodes.new("ShaderNodeBevel")
-    image_texture_node = nodes.new("ShaderNodeTexImage")
-    
-    # Place nodes in correct position
-    setNodeLocation(mat_output, 300, 25)
-    setNodeLocation(bevel_node, -300, -565)
-    setNodeLocation(image_texture_node, -600, 0)
-
-    # Get node links
-    links = bpy.context.active_object.active_material.node_tree.links
-    
-    # Link nodes
-    links.new(bevel_node.outputs[0], shader_node.inputs[22])
-    links.new(shader_node.outputs[0], mat_output.inputs[0])
 
 def create_image():
     
@@ -105,10 +75,46 @@ def create_image():
         if image_name == image.name:
             count_suffix = count_suffix + 1
             
-    
-
-        
-
     bpy.ops.image.new(name=(image_name),width=im_width, height=im_height, generated_type='COLOR_GRID')
+    attool.at_image_name = image_name
     
     
+# set node location
+
+def setNodeLocation(node, x, y):
+    if node.location:
+        node.location = x, y
+    
+def create_shader_editor_env():
+    
+    
+    scene = bpy.context.scene
+    attool = scene.at_tool
+    # Get nodes from node tree and clear
+    nodes = bpy.context.active_object.active_material.node_tree.nodes
+    nodes.clear()
+    
+    
+        
+    # Create nodes
+    shader_node = nodes.new("ShaderNodeBsdfPrincipled")
+    mat_output = nodes.new('ShaderNodeOutputMaterial')
+    bevel_node = nodes.new("ShaderNodeBevel")
+    image_texture_node = nodes.new("ShaderNodeTexImage")
+    
+    # Place nodes in correct position
+    setNodeLocation(mat_output, 300, 25)
+    setNodeLocation(bevel_node, -300, -565)
+    setNodeLocation(image_texture_node, -600, 0)
+
+    # Get node links
+    links = bpy.context.active_object.active_material.node_tree.links
+    
+    # Link nodes
+    links.new(bevel_node.outputs[0], shader_node.inputs[22])
+    links.new(shader_node.outputs[0], mat_output.inputs[0])
+    
+    
+    # Link texture by name from custom property
+    if attool.at_image_name != "":
+        image_texture_node.image = bpy.data.images.get(attool.at_image_name)
