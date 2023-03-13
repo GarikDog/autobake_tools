@@ -82,6 +82,14 @@ def create_shader_editor_env():
     links.new(shader_node.outputs[0], mat_output.inputs[0])
 
 def create_image():
+    
+    scene = bpy.context.scene
+    attool = scene.at_tool
+    
+    # Get image size from custom properties
+    im_width = attool.image_width_prop_int
+    im_height = attool.image_height_prop_int
+    
     obj = bpy.context.active_object
     images = bpy.data.images
     image_names = []
@@ -101,6 +109,6 @@ def create_image():
 
         
 
-    bpy.ops.image.new(name=(image_name),width=1024, height=1024)
+    bpy.ops.image.new(name=(image_name),width=im_width, height=im_height, generated_type='COLOR_GRID')
     
     

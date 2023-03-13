@@ -2,7 +2,6 @@ import bpy
 
 from gpu_extras.presets import draw_texture_2d
 from bpy.types import Menu, Panel, UIList
-from ..property.at_properties import AT_Properties
 
 
 class VIEW3D_PT_Autobake(Panel):
@@ -47,6 +46,6 @@ class VIEW3D_PT_Autobake(Panel):
         row = layout.split(factor=0.5, align=False)
         
         box.operator("at.create_environment")
-        box.operator("object.bake")
+        box.operator("at.bake")
                 
         
