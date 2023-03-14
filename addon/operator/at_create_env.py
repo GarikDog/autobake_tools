@@ -22,7 +22,6 @@ class AT_OP_Create_Environment(Operator):
         create_render_env_n()
         create_mat_env()
         create_shader_editor_env()
-        bevel_samples_setting()
         
         
         # Setting the value for custom statement property

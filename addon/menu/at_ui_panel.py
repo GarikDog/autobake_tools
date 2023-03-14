@@ -45,4 +45,3 @@ class VIEW3D_PT_Autobake(Panel):
         
         box.operator("at.create_environment")
         box.operator("at.bake")
-        box.operator("at.node_value_setter")

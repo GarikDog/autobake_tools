@@ -14,8 +14,11 @@ def create_render_env_n():
     print ("Feature Set setted to", scn.cycles.feature_set)
     
     # Set Render Device to GPU Compute if not selected
-    if not scn.cycles.device == 'GPU':
-        scn.cycles.device = 'GPU'
+    try:
+        if not scn.cycles.device == 'GPU':
+            scn.cycles.device = 'GPU'
+    except:
+        print ("Current device is", scn.cycles.device)
     print ("Render Device setted to", scn.cycles.device)
     
     # Set Bake Multires to False if not
