@@ -2,7 +2,7 @@ import bpy
 from bpy.types import Operator
 
 from ..utility.at_utils import (create_mat_env, create_render_env_n,
-                                create_shader_editor_env, bevel_samples_setting)
+                                create_shader_editor_env, bevel_samples_setting, viewport_shading_setting)
 
 
 
@@ -15,6 +15,10 @@ class AT_OP_Create_Environment(Operator):
     def execute(self, context):
         obj = context.active_object
         atobjtool = obj.at_objtool
+        light_intensity = 0.2
+        
+        
+        viewport_shading_setting(light_intensity)
         create_render_env_n()
         create_mat_env()
         create_shader_editor_env()

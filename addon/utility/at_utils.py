@@ -67,17 +67,21 @@ def create_image():
     obj = bpy.context.active_object
     images = bpy.data.images
     image_names = []
-    count_suffix = int(1)
-    image_name = (obj.name)+'_n'
-    
+    count_suffix = 1
+    image_name = f'{obj.name}'
     
     
     for image in images:
+        image_name = f'{obj.name}_{count_suffix}_n'
         image_names.append(image.name)
-        image_name = (obj.name)+'_'+str(count_suffix)+'_n'
         
-        if image_name == image.name:
-            count_suffix = count_suffix + 1
+        if image_name in image_names:
+            count_suffix += 1
+            image_name = f'{obj.name}_{count_suffix}_n'
+        
+        
+        
+        
             
     bpy.ops.image.new(name=(image_name),width=im_width, height=im_height, generated_type='COLOR_GRID')
     
@@ -148,3 +152,16 @@ def bevel_radius_setting ():
     bevel_node.inputs[0].default_value = attool.bevel_radius_prop_float
     
     
+def viewport_shading_setting (intensity: float):
+    
+    bpy.context.space_data.shading.type = 'RENDERED'
+    bpy.context.space_data.shading.studio_light = 'city.exr'
+    
+    if bpy.context.space_data.shading.studiolight_intensity != intensity:
+        bpy.context.space_data.shading.studiolight_intensity = intensity
+
+    if bpy.context.space_data.shading.use_scene_world_render:
+        bpy.context.space_data.shading.use_scene_world_render = False
+        
+
+
