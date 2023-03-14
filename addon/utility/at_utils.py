@@ -103,11 +103,13 @@ def create_shader_editor_env():
     mat_output = nodes.new('ShaderNodeOutputMaterial')
     bevel_node = nodes.new("ShaderNodeBevel")
     image_texture_node = nodes.new("ShaderNodeTexImage")
+    bevel_radius_value = nodes.new("ShaderNodeValue")
     
     # Place nodes in correct position
     setNodeLocation(mat_output, 300, 25)
     setNodeLocation(bevel_node, -300, -565)
     setNodeLocation(image_texture_node, -600, 0)
+    setNodeLocation(bevel_radius_value, -500, -620)
 
     # Get node links
     links = bpy.context.active_object.active_material.node_tree.links
@@ -115,6 +117,7 @@ def create_shader_editor_env():
     # Link nodes
     links.new(bevel_node.outputs[0], shader_node.inputs[22])
     links.new(shader_node.outputs[0], mat_output.inputs[0])
+    links.new(bevel_radius_value.outputs[0], bevel_node.inputs[0])
     
     
     '''# Link texture by name from custom property
@@ -129,9 +132,15 @@ def bevel_samples_setting ():
     attool = scene.at_tool
     attool = scene.at_tool
     bevel_node.samples = attool.bevel_samples_prop_int
-    print (bevel_node.samples)
     
+def bevel_radius_setting ():
+    nodes = bpy.context.active_object.active_material.node_tree.nodes
     
-    
+    bevel_node = nodes.get("Bevel")
+    scene = bpy.context.scene
+    attool = scene.at_tool
+    attool = scene.at_tool
+    #bevel_radius_value. = attool.bevel_radius_prop_float
+    bevel_node.inputs[0].default_value = attool.bevel_radius_prop_float
     
     
