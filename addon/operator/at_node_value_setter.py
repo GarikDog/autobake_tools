@@ -8,6 +8,11 @@ class AT_OP_node_value_setter(Operator):
     bl_label = "Set Node values"
     bl_description = "Setting up node values"
     
-    def execute(self, context):
-        #bevel_samples_setting()
-        return{'FINISHED'}
+    
+    
+
+    
+    
+    def modal(self, context, event):
+        if event.type == 'LEFTMOUSE':
+            print("eeeeeeeeeeeeeeeeeeeeeee")

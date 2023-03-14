@@ -2,9 +2,8 @@ import bpy
 
 from gpu_extras.presets import draw_texture_2d
 from bpy.types import Menu, Panel, UIList
-from ..operator.at_node_value_setter import AT_OP_node_value_setter
 
-
+from ..utility.at_utils import bevel_samples_setting
 
 
 class VIEW3D_PT_Autobake(Panel):
@@ -46,4 +45,4 @@ class VIEW3D_PT_Autobake(Panel):
         
         box.operator("at.create_environment")
         box.operator("at.bake")
-                
+        box.operator("at.node_value_setter")
