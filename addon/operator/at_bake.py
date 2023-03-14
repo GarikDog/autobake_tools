@@ -1,6 +1,8 @@
 import bpy
 from bpy.types import Operator
 
+from ..utility.at_utils import create_image
+
 
 class AT_OP_Bake(Operator):
     bl_idname = "at.bake"
@@ -21,4 +23,19 @@ class AT_OP_Bake(Operator):
     
     
     def execute(self, context):
+        
+        image_name = create_image()
+        
+        bpy.ops.object.bake(type='NORMAL')
+        
+       
+        
+        bpy.ops.wm.window_new()
+        print(bpy.context.area)
+        
+        for area in bpy.context.screen.areas:
+            area.type = 'IMAGE_EDITOR'
+            area.spaces.active.image = bpy.data.images[image_name]
+        
+        
         return{'FINISHED'}

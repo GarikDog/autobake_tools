@@ -3,14 +3,14 @@ import bpy
 from ..utility.at_utils import bevel_samples_setting, bevel_radius_setting
 
 def get_bevel_value(self):
-    return self.id_data.get("at_tool.bevel_samples_prop_int", int())
+    return self.id_data.get("at_tool.bevel_samples_prop_int", int(8))
 
 def set_bevel_value(self, value):
     self.id_data["at_tool.bevel_samples_prop_int"]=value
     bevel_samples_setting()
     
 def get_bevel_radius(self):
-    return self.id_data.get("at_tool.bevel_radius_prop_float", float())
+    return self.id_data.get("at_tool.bevel_radius_prop_float", float(0.02))
     
 def set_bevel_radius(self, value):
     self.id_data["at_tool.bevel_radius_prop_float"]=value

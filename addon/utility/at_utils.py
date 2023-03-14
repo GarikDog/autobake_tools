@@ -51,7 +51,7 @@ def create_mat_env():
 
 
 
-def create_image_name():
+def create_image():
     
     scene = bpy.context.scene
     attool = scene.at_tool
@@ -59,6 +59,10 @@ def create_image_name():
     # Get image size from custom properties
     im_width = attool.image_width_prop_int
     im_height = attool.image_height_prop_int
+    
+    
+    nodes = bpy.context.active_object.active_material.node_tree.nodes
+    image_texture_node = nodes.get("Image Texture")
     
     obj = bpy.context.active_object
     images = bpy.data.images
@@ -75,10 +79,17 @@ def create_image_name():
         if image_name == image.name:
             count_suffix = count_suffix + 1
             
-    #!!!!!!!!!!bpy.ops.image.new(name=(image_name),width=im_width, height=im_height, generated_type='COLOR_GRID')
+    bpy.ops.image.new(name=(image_name),width=im_width, height=im_height, generated_type='COLOR_GRID')
     
     # Set current texture name to the custom property
     attool.at_image_name = image_name
+    
+    # Link texture by name from custom property
+    image_texture_node.image = bpy.data.images.get(attool.at_image_name)
+    
+    return image_name
+
+
     
     
 # set node location
@@ -103,13 +114,11 @@ def create_shader_editor_env():
     mat_output = nodes.new('ShaderNodeOutputMaterial')
     bevel_node = nodes.new("ShaderNodeBevel")
     image_texture_node = nodes.new("ShaderNodeTexImage")
-    bevel_radius_value = nodes.new("ShaderNodeValue")
     
     # Place nodes in correct position
     setNodeLocation(mat_output, 300, 25)
     setNodeLocation(bevel_node, -300, -565)
     setNodeLocation(image_texture_node, -600, 0)
-    setNodeLocation(bevel_radius_value, -500, -620)
 
     # Get node links
     links = bpy.context.active_object.active_material.node_tree.links
@@ -117,12 +126,8 @@ def create_shader_editor_env():
     # Link nodes
     links.new(bevel_node.outputs[0], shader_node.inputs[22])
     links.new(shader_node.outputs[0], mat_output.inputs[0])
-    links.new(bevel_radius_value.outputs[0], bevel_node.inputs[0])
     
     
-    '''# Link texture by name from custom property
-    if attool.at_image_name != "":
-        image_texture_node.image = bpy.data.images.get(attool.at_image_name)'''
         
 def bevel_samples_setting ():
     nodes = bpy.context.active_object.active_material.node_tree.nodes
@@ -140,7 +145,6 @@ def bevel_radius_setting ():
     scene = bpy.context.scene
     attool = scene.at_tool
     attool = scene.at_tool
-    #bevel_radius_value. = attool.bevel_radius_prop_float
     bevel_node.inputs[0].default_value = attool.bevel_radius_prop_float
     
     
