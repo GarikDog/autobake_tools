@@ -1,6 +1,7 @@
 <!-- PROJECT SHIELDS -->
 [![Contributors][contributors-shield]][contributors-url]
 [![Stargazers][stars-shield]][stars-url]
+[![Release][release-shield]][release-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
@@ -44,10 +45,8 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -75,11 +74,109 @@ An easy to use Blender Add-on that allows you to bake Bevel Shader to the Normal
 * [![bpy][project/bpy]][bpy-url]
 
 
+<!-- GETTING STARTED -->
+## Getting Started
+
+
+
+### Prerequisites
+
+
+First You need to install Blender (preferably 3,4,1 or newer)
+
+* [![blender][blender.org]][blender-url]
+
+### Installation
+
+1. Download latest release of Autobake Tools:
+
+* [![Release][release-shield]][release-url]
+2. Run Blender
+
+3. Go to ***Edit>Preferences Add-ons tab.***
+
+4. At the top right of the Blender Preferences window, push the ***install...*** bottom.
+
+5. Find the ***downloaded zip with Autobake Tools*** in file manager that appeared, select and click ***Install Add-on***.
+
+6. Next, use the search in the Blender Preferences window (Directly under the ***Install...*** button), find the addon by name.
+
+7. Check the box next to the found Add-on.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- USAGE EXAMPLES -->
+## Usage
+1. Select an object that need to bake in the scene. ***(Must be UV unwrapped)***
+
+2. If the object is selected, the ***Autobake Tools*** Panel will become available.
+
+3. Go to ***Autobake Tools*** Panel
+
+4. Push the ***Create Bake Environment*** buttom
+
+5. Correct Values:
+* ***Bevel Samples*** - Number of rays to trace per belel shader evaluation.
+* ***Bevel Radius(m)*** - radius of traced bevels (in meters by default)
+* ***Image Width*** - Bake Image width
+* ***Image Height*** - Bake Image height
+6. Push the ***Bake and Show Image*** buttom
+7. Wait... And That's All! You may save the Bake result Normal Map in Image Window that appeared
+
+You can look at this gif again:
+
+![](https://github.com/GarikDog/autobake_tools/blob/main/images/baking_bevel.gif)
+
+
+***Important additional information:***
+
+It is advisable to check if GPU Render is available for Cycles.
+
+If not available, go to Edit>Preferences System tab
+In it, select the CUDA subtab and uncheck / check the boxes next to your video card name and near the processor name.
+
+After these steps, GPU Compute will be available in most cases (If the hardware is not quite ancient)
+
+***GPU Compute for Cycles is extremely important and greatly overclocks the render, please keep in mind!***
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!-- ROADMAP -->
+## Roadmap
+
+-  Add an Ambient Occlusion Auto-Bake
+
+
+
+See the [open issues](https://github.com/GarikDog/autobake_tools/issues) for a full list of proposed features (and known issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LICENSE -->
+## License
+
+Distributed under the APACHE-2.0 License. See `LICENSE.md` for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Contact
+
+Igor Subachev (GarikDog) - [Discord](https://discordapp.com/users/GarikDog#7847) - sobakapppoe@gmail.com
+
+Project Link: [https://github.com/GarikDog/autobake_tools](https://github.com/GarikDog/autobake_tools)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/GarikDog/autobake_tools.svg?style=for-the-badge
 [contributors-url]: https://github.com/GarikDog/autobake_tools/graphs/contributors
+[release-url]: https://github.com/GarikDog/autobake_tools/releases
+[release-shield]: https://img.shields.io/github/release/GarikDog/autobake_tools.svg?style=for-the-badge
 [stars-shield]: https://img.shields.io/github/stars/GarikDog/autobake_tools.svg?style=for-the-badge
 [stars-url]: https://github.com/GarikDog/autobake_tools/stargazers
 [issues-shield]: https://img.shields.io/github/issues/GarikDog/autobake_tools.svg?style=for-the-badge
@@ -89,7 +186,8 @@ An easy to use Blender Add-on that allows you to bake Bevel Shader to the Normal
 [product-screenshot]: images/screenshot.png
 [product-gif-demo]: images/baking_bevel.gif
 
-
+[blender-url]: https://www.blender.org/
+[blender.org]: https://img.shields.io/badge/blender-0769AD?style=for-the-badge&logo=blender&logoColor=orange
 [bpy-url]: https://pypi.org/project/bpy/
 [project/bpy]: https://img.shields.io/badge/bpy-0769AD?style=for-the-badge&logo=pypi&logoColor=white
 
