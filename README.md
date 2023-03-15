@@ -59,11 +59,13 @@
 
 An easy to use Blender Add-on that allows you to bake Bevel Shader to the Normal Map in fully automatic mode.
 
-<img src="images/baking_bevel.gif" alt="Logo" width="200" height="155">
+
 
 
 * If You are working in Blender, this will save you a lot of time!
 * If You're not working in Blender but need to bake your bevels, this will save you even more time!
+
+<img src="images/baking_bevel.gif" alt="Logo" width="410" height="300">
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
