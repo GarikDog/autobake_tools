@@ -59,7 +59,7 @@
 
 An easy to use Blender Add-on that allows you to bake Bevel Shader to the Normal Map in fully automatic mode.
 
-[![Watch the video](https://github.com/GarikDog/autobake_tools/blob/main/images/screenshot_n.png)](https://github.com/GarikDog/autobake_tools/blob/main/videos/baking_bevel.mp4)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/GarikDog/autobake_tools/blob/main/images/baking_bevel.gif)
 
 
 * If you are working in Blender, this will save you a lot of time!
