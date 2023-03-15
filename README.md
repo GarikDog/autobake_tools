@@ -65,7 +65,7 @@ An easy to use Blender Add-on that allows you to bake Bevel Shader to the Normal
 * If You are working in Blender, this will save you a lot of time!
 * If You're not working in Blender but need to bake your bevels, this will save you even more time!
 
-<img src="images/baking_bevel.gif" alt="Logo" width="410" height="300">
+![](https://github.com/GarikDog/autobake_tools/blob/main/images/baking_bevel.gif)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -85,7 +85,7 @@ An easy to use Blender Add-on that allows you to bake Bevel Shader to the Normal
 [issues-shield]: https://img.shields.io/github/issues/GarikDog/autobake_tools.svg?style=for-the-badge
 [issues-url]: https://github.com/GarikDog/autobake_tools/issues
 [license-shield]: https://img.shields.io/github/license/GarikDog/autobake_tools.svg?style=for-the-badge
-[license-url]: https://github.com/GarikDog/autobake_tools//blob/master/LICENSE.txt
+[license-url]: https://github.com/GarikDog/autobake_tools//blob/main/LICENSE.md
 [product-screenshot]: images/screenshot.png
 [product-gif-demo]: images/baking_bevel.gif
 
