@@ -110,7 +110,7 @@ First You need to install Blender (preferably 3,4,1 or newer)
 ## Usage
 1. Select an object that need to bake in the scene. ***(Must be UV unwrapped)***
 
-2. If the object is selected, the ***Autobake Tools*** Panel will become available.
+2. If an object is selected, the ***Autobake Tools*** Panel will become available.
 
 3. Go to ***Autobake Tools*** Panel
 
