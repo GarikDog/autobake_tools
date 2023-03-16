@@ -45,6 +45,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#explanation-of-what-addon-code-does">Explanation of what the addon code does</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -139,6 +140,50 @@ In it, select the CUDA subtab and uncheck / check the boxes next to your video c
 After these steps, GPU Compute will be available in most cases (If the hardware is not quite ancient)
 
 ***GPU Compute for Cycles is extremely important and greatly overclocks the render, please keep in mind!***
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!-- EXPLORATION -->
+## Explanation of what the addon code does
+
+***Create Bake Environment operator:***
+
+* Shading setup:
+1. Sets the Render Engine to ***Cycles***
+
+2. Sets the Render Feature Set to ***Supported***
+
+3. Trying to set the Render Device to ***GPU***
+
+4. Sets the ***Bake Multires*** to False
+
+5. Sets the ***Selected to Active*** to False
+
+* Material Setup:
+1. ***Creates Material*** (if selected object have not material)
+
+2. Sets the ***Use Nodes*** to True
+
+* ***Shader Editor setup:***
+
+1. Creates, places and conneсts ***Principled BSDF, Material Output, Bevel node, Image Texture node***
+
+***Bake and Show Image operator:***
+
+* Creates the ***Image*** with ***custom _n name ending***
+
+* Runs default  blender ***Bake*** operator with type ***Normal***
+
+* Opens the window with the Result
+
+***Bevel Samples,
+Bevel Radius,
+Image Width,
+Image Height*** - custom properties. It's implementation allows you to change the values ​​at any time. The nodes will get them anyway.
+
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
