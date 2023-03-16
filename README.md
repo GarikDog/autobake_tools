@@ -150,7 +150,7 @@ After these steps, GPU Compute will be available in most cases (If the hardware 
 
 ***Create Bake Environment operator:***
 
-* Shading setup:
+* ***Shading setup:***
 1. Sets the Render Engine to ***Cycles***
 
 2. Sets the Render Feature Set to ***Supported***
