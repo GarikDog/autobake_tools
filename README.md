@@ -114,14 +114,14 @@ First You need to install Blender (preferably 3,4,1 or newer)
 
 3. Go to ***Autobake Tools*** Panel
 
-4. Push the ***Create Bake Environment*** buttom
+4. Push the ***Create Bake Environment*** button
 
 5. Correct Values:
 * ***Bevel Samples*** - Number of rays to trace per belel shader evaluation.
 * ***Bevel Radius(m)*** - radius of traced bevels (in meters by default)
 * ***Image Width*** - Bake Image width
 * ***Image Height*** - Bake Image height
-6. Push the ***Bake and Show Image*** buttom
+6. Push the ***Bake and Show Image*** button
 7. Wait... And That's All! You may save the Bake result Normal Map in Image Window that appeared
 
 You can look at this gif again:
