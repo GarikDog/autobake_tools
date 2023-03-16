@@ -161,7 +161,7 @@ After these steps, GPU Compute will be available in most cases (If the hardware 
 
 5. Sets the ***Selected to Active*** to False
 
-* Material Setup:
+* ***Material Setup:***
 1. ***Creates Material*** (if selected object have not material)
 
 2. Sets the ***Use Nodes*** to True
