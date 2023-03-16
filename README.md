@@ -96,7 +96,7 @@ First You need to install Blender (preferably 3,4,1 or newer)
 
 3. Go to ***Edit>Preferences Add-ons tab.***
 
-4. At the top right of the Blender Preferences window, push the ***install...*** bottom.
+4. At the top right of the Blender Preferences window, push the ***install...*** botton.
 
 5. Find the ***downloaded zip with Autobake Tools*** in file manager that appeared, select and click ***Install Add-on***.
 
