@@ -84,7 +84,9 @@ An easy to use Blender Add-on that allows you to bake Bevel Shader to the Normal
 ### Prerequisites
 
 
-First You need to install Blender (preferably 3,4,1 or newer)
+First You need to install Blender (You need the ***3,0,1*** or newer)
+
+* Download the last blender release: 
 
 * [![blender][blender.org]][blender-url]
 
