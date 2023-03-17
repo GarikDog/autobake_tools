@@ -81,7 +81,10 @@ def create_image():
     
     
     nodes = bpy.context.active_object.active_material.node_tree.nodes
-    image_texture_node = nodes.get("Image Texture")
+    for node in nodes:
+        print (("node type is:"), (node.type))
+        if node.type == "TEX_IMAGE":
+            image_texture_node = node
     
     obj = bpy.context.active_object
     images = bpy.data.images
@@ -104,6 +107,7 @@ def create_image():
             
     bpy.ops.image.new(name=(image_name),width=im_width, height=im_height, generated_type='COLOR_GRID')
     
+    print(("Image name is  - "), (image_name))
     # Set current texture name to the custom property
     attool.at_image_name = image_name
     
@@ -149,6 +153,11 @@ def create_shader_editor_env():
     # Link nodes
     links.new(bevel_node.outputs[0], shader_node.inputs[22])
     links.new(shader_node.outputs[0], mat_output.inputs[0])
+    
+    for node in nodes:
+        print (("I have this node:"), (node))
+        
+    return image_texture_node
     
     
         
