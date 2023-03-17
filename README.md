@@ -6,6 +6,7 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -49,6 +50,7 @@
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -200,14 +202,14 @@ Image Height*** - custom properties. It's implementation allows you to change th
 
 
 
-See the [open issues](https://github.com/GarikDog/autobake_tools/issues) for a full list of proposed features (and known issues).
+See [open issues](https://github.com/GarikDog/autobake_tools/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 ## License
 
-Distributed under the APACHE-2.0 License. See `LICENSE.md` for more information.
+Distributed under the APACHE-2.0 License. See [LICENSE.md](https://github.com/GarikDog/autobake_tools/blob/main/LICENSE.md) for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -216,6 +218,14 @@ Distributed under the APACHE-2.0 License. See `LICENSE.md` for more information.
 Igor Subachev (GarikDog) - [Discord](https://discordapp.com/users/GarikDog#7847) - sobakapppoe@gmail.com
 
 Project Link: [https://github.com/GarikDog/autobake_tools](https://github.com/GarikDog/autobake_tools)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
+* Thanks to [Steven Wyatt](https://www.udemy.com/user/steven-wyatt-2/) for a great course on bpy development
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
