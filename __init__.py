@@ -18,8 +18,8 @@ bl_info = {
     "name": "Autobake Tools",
     "description": "Autobake Tools",
     "author": "Igor Subachev (GarikDog)",
-    "version": (1,0),
-    "blender": (3,4,1),
+    "version": (1,0,1),
+    "blender": (2,8,0),
     "location": "View3D",
     "category": "3D View"}
 
