@@ -168,7 +168,9 @@ After these steps, GPU Compute will be available in most cases (If the hardware 
 
 * ***Shader Editor setup:***
 
-1. Creates, places and conneсts ***Principled BSDF, Material Output, Bevel node, Image Texture node***
+1. Clear Nodes
+
+2. Creates, places and conneсts ***Principled BSDF, Material Output, Bevel node, Image Texture node***
 
 ***Bake and Show Image operator:***
 
