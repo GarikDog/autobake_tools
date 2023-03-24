@@ -49,8 +49,8 @@ class VIEW3D_PT_Autobake(Panel):
         scene = bpy.context.scene
         attool = scene.at_tool
        
-        
-
+        box = layout.box()
+        box.operator("at.create_environment")
         layout.column().prop(attool, "bevel_samples_prop_int", text="Bevel Samples")
         layout.column().prop(attool, "bevel_radius_prop_float", text="Bevel Radius (m)")
         layout.column().prop(attool, "image_width_prop_int", text="Image Width")
@@ -59,5 +59,5 @@ class VIEW3D_PT_Autobake(Panel):
         box = layout.box()
         row = layout.split(factor=0.5, align=False)
         
-        box.operator("at.create_environment")
         box.operator("at.bake")
+        box.operator("at.bake_ao")

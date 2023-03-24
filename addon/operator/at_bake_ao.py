@@ -15,23 +15,43 @@
  ###############################################################################
 
 import bpy
+from bpy.types import Operator
 
-from .at_create_env import AT_OP_Create_Environment
-from .at_bake import AT_OP_Bake
-from .at_bake_ao import AT_OP_Bake_ao
-
-classes = (
-AT_OP_Create_Environment, AT_OP_Bake, AT_OP_Bake_ao
-)
+from ..utility.at_utils import create_image
 
 
-def register_operators():
-    from bpy.utils import register_class
-    for cls in classes:
-        register_class(cls)
-
-
-def unregister_operators():
-    from bpy.utils import unregister_class
-    for cls in reversed(classes):
-        unregister_class(cls)
+class AT_OP_Bake_ao(Operator):
+    bl_idname = "at.bake_ao"
+    bl_label = "Bake AO and Show"
+    bl_description = "Bake Ambient Occlusion map. Then show the result image"
+    
+    
+    @classmethod
+    
+    def poll(cls, context):
+        obj = context.active_object
+        atobjtool = obj.at_objtool
+        if atobjtool.prepare_statement_prop_bool == True:
+            return True
+        return False
+    
+    
+    
+    
+    def execute(self, context):
+        
+        image_name = create_image()
+        
+        bpy.ops.object.bake(type='NORMAL')
+        
+       
+        
+        bpy.ops.wm.window_new()
+        print(bpy.context.area)
+        
+        for area in bpy.context.screen.areas:
+            area.type = 'IMAGE_EDITOR'
+            area.spaces.active.image = bpy.data.images[image_name]
+        
+        
+        return{'FINISHED'}

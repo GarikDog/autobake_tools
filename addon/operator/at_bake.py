@@ -23,7 +23,7 @@ from ..utility.at_utils import create_image
 
 class AT_OP_Bake(Operator):
     bl_idname = "at.bake"
-    bl_label = "Bake and Show Image"
+    bl_label = "Bake Normal and Show"
     bl_description = "Bake map. Then show the result image"
     
     
