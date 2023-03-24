@@ -141,11 +141,13 @@ def create_shader_editor_env():
     mat_output = nodes.new('ShaderNodeOutputMaterial')
     bevel_node = nodes.new("ShaderNodeBevel")
     image_texture_node = nodes.new("ShaderNodeTexImage")
+    ambient_occulusion_node = nodes.new("ShaderNodeAmbientOcclusion")
     
     # Place nodes in correct position
     setNodeLocation(mat_output, 300, 25)
     setNodeLocation(bevel_node, -300, -565)
-    setNodeLocation(image_texture_node, -600, 0)
+    setNodeLocation(image_texture_node, -900, 0)
+    setNodeLocation(ambient_occulusion_node, -600, 0)
 
     # Get node links
     links = bpy.context.active_object.active_material.node_tree.links
