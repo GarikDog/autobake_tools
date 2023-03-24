@@ -142,12 +142,14 @@ def create_shader_editor_env():
     bevel_node = nodes.new("ShaderNodeBevel")
     image_texture_node = nodes.new("ShaderNodeTexImage")
     ambient_occulusion_node = nodes.new("ShaderNodeAmbientOcclusion")
+    math_node = nodes.new("ShaderNodeMath")
     
     # Place nodes in correct position
     setNodeLocation(mat_output, 300, 25)
     setNodeLocation(bevel_node, -300, -565)
     setNodeLocation(image_texture_node, -900, 0)
     setNodeLocation(ambient_occulusion_node, -600, 0)
+    setNodeLocation(math_node, -300, 0)
 
     # Get node links
     links = bpy.context.active_object.active_material.node_tree.links
@@ -155,6 +157,8 @@ def create_shader_editor_env():
     # Link nodes
     links.new(bevel_node.outputs[0], shader_node.inputs[22])
     links.new(shader_node.outputs[0], mat_output.inputs[0])
+    math_node.operation = 'POWER' # make power operation in the Math node (it always have Add by default)
+    links.new(ambient_occulusion_node.outputs[0], math_node.inputs[0])
     
     for node in nodes:
         print (("I have this node:"), (node))
