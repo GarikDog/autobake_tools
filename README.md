@@ -238,7 +238,7 @@ Project Link: [https://github.com/GarikDog/autobake_tools](https://github.com/Ga
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/GarikDog/autobake_tools.svg?style=for-the-badge
 [contributors-url]: https://github.com/GarikDog/autobake_tools/graphs/contributors
-[release-url]: https://github.com/GarikDog/autobake_tools/releases
+[release-url]: https://github.com/GarikDog/autobake_tools/releases/latest
 [release-shield]: https://img.shields.io/github/release/GarikDog/autobake_tools.svg?style=for-the-badge
 [stars-shield]: https://img.shields.io/github/stars/GarikDog/autobake_tools.svg?style=for-the-badge
 [stars-url]: https://github.com/GarikDog/autobake_tools/stargazers
