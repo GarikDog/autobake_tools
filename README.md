@@ -68,7 +68,7 @@ An easy to use Blender Add-on that allows you to bake Bevel Shader to the Normal
 * If You are working in Blender, this will save you a lot of time!
 * If You're not working in Blender but need to bake your bevels, this will save you even more time!
 
-![](https://github.com/GarikDog/autobake_tools/blob/main/images/baking_bevel.gif)
+
 ![](https://github.com/GarikDog/autobake_tools/blob/main/images/baking_bevel_2.gif)
 ![](https://github.com/GarikDog/autobake_tools/blob/main/images/show_marmoset.gif)
 ![](https://github.com/GarikDog/autobake_tools/blob/main/images/show_substance.gif)
@@ -132,7 +132,7 @@ First You need to install Blender (You need the ***3,0,1*** or newer)
 6. Push the ***Bake and Show Image*** button
 7. Wait... And That's All! You may save the Bake result Normal Map in Image Window that appeared
 
-You can look at this gif again:
+You can look at this gif:
 
 ![](https://github.com/GarikDog/autobake_tools/blob/main/images/baking_bevel.gif)
 
