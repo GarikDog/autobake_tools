@@ -42,10 +42,22 @@ def set_bevel_radius(self, value):
 def get_at_ao_distance(self):
     return self.id_data.get("at_ao_distance", float(0.1))
 
+
+def get_at_glossy_preview(self):
+    return self.id_data.get("at_glossy_preview", bool(False))
+
+def set_at_glossy_preview(self, value):
+    self.id_data["at_glossy_preview"]=value
+    try:
+        change_to_glossy_shader(value)
+    except:
+        print("there are no Nodes by now")
+
 def set_at_ao_distance(self, value):
     self.id_data["at_ao_distance"]=value
     try:
         ao_distance_setting()
+        set_at_glossy_preview(self, False)
     except:
         print("there are no Nodes by now")
         
@@ -56,6 +68,7 @@ def set_at_ao_exponentiation(self, value):
     self.id_data["at_ao_exponentiation"]=value
     try:
         ao_exponentiation_setting()
+        set_at_glossy_preview(self, False)
     except:
         print("there are no Nodes by now")
         
@@ -67,18 +80,11 @@ def set_at_ao_samples(self, value):
     self.id_data["at_ao_samples"]=value
     try:
         ao_samples_setting()
+        set_at_glossy_preview(self, False)
     except:
         print("there are no Nodes by now")
         
-def get_at_glossy_preview(self):
-    return self.id_data.get("at_glossy_preview", bool(False))
 
-def set_at_glossy_preview(self, value):
-    self.id_data["at_glossy_preview"]=value
-    try:
-        change_to_glossy_shader(value)
-    except:
-        print("there are no Nodes by now")
 
 class AT_Properties(bpy.types.PropertyGroup):
     bevel_samples_prop_int : bpy.props.IntProperty(name="Bevel Samples", soft_min=2, soft_max=32, default=8, get=get_bevel_value, set=set_bevel_value)

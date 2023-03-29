@@ -59,7 +59,7 @@ class AT_OP_Bake_ao(Operator):
                 attool.at_glossy_preview = True
             
         except Exception as e:
-            e = ("Please check Bake Environment")
+            e = ("Please check Bake Environment. Please select an Object if it's not selected")
             showMessageBox(e, "Where am I?", 'ZOOM_ALL')
         
         

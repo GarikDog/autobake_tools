@@ -56,7 +56,7 @@ class AT_OP_Bake(Operator):
                 area.type = 'IMAGE_EDITOR'
                 area.spaces.active.image = bpy.data.images[image_name]
         except Exception as e:
-            e = ("Please check Bake Environment")
+            e = ("Please check Bake Environment. Please select an Object if it's not selected")
             showMessageBox(e, "Where am I?", 'ZOOM_ALL')
             
         
