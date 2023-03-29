@@ -141,7 +141,7 @@ For AO:
 
 
 6. Push the ***Bake Normal and Show*** button for Bevel or ***Bake AO and Show*** for AO
-7. Wait... And That's All! You may save the Bake result Normal Map in Image Window that appeared
+7. Wait... And That's All! You may save the Bake result Normal Map/AO Map in Image Window that appeared
 
 You can look at this gif:
 
@@ -222,7 +222,7 @@ AO Exponentiation*** - custom properties. It's implementation allows you to chan
 <!-- ROADMAP -->
 ## Roadmap
 
--  Add an Ambient Occlusion Auto-Bake
+-  Add a multimesh bake
 
 
 
