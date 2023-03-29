@@ -15,8 +15,8 @@
  ###############################################################################
 
 bl_info = {
-    "name": "Autobake Tools",
-    "description": "Autobake Tools",
+    "name": "Auto-bake Tools",
+    "description": "Auto-bake Tools",
     "author": "Igor Subachev (GarikDog)",
     "version": (1,1,0),
     "blender": (3,0,1),
