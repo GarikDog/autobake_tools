@@ -135,12 +135,11 @@ def create_shader_editor_env():
     nodes.clear()
     
     
-    # Set metalic for beautiful bevels view
-    metallic_value = 0.7
+   
     
         
     # Create nodes
-    shader_node = nodes.new("ShaderNodeBsdfPrincipled")
+    shader_node = nodes.new("ShaderNodeBsdfDiffuse")
     mat_output = nodes.new('ShaderNodeOutputMaterial')
     bevel_node = nodes.new("ShaderNodeBevel")
     image_texture_node = nodes.new("ShaderNodeTexImage")
@@ -158,14 +157,13 @@ def create_shader_editor_env():
     links = bpy.context.active_object.active_material.node_tree.links
     
     # Link nodes
-    links.new(bevel_node.outputs[0], shader_node.inputs[22])
+    links.new(bevel_node.outputs[0], shader_node.inputs[2])
     links.new(shader_node.outputs[0], mat_output.inputs[0])
     math_node.operation = 'POWER' # make power operation in the Math node (it always have Add by default)
     math_node.inputs[1].default_value = attool.at_ao_exponentiation
     bevel_node.inputs[0].default_value = attool.bevel_samples_prop_int
     bevel_node.inputs[0].default_value = attool.bevel_radius_prop_float
     bevel_node.samples = attool.bevel_samples_prop_int
-    shader_node.inputs[6].default_value = metallic_value
     ambient_occulusion_node.samples = attool.at_ao_samples
     ambient_occulusion_node.inputs[1].default_value = attool.at_ao_distance
     links.new(ambient_occulusion_node.outputs[0], math_node.inputs[0])

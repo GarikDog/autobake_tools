@@ -42,8 +42,11 @@ class AT_OP_Bake_ao(Operator):
         try:
             image_name = create_image()
             
-            bpy.ops.object.bake(type='NORMAL')
-            
+            bpy.ops.object.bake(type='DIFFUSE')
+            bpy.context.scene.render.bake.use_pass_direct = False
+            bpy.context.scene.render.bake.use_pass_indirect = False
+
+
         
             
             bpy.ops.wm.window_new()
