@@ -105,7 +105,8 @@ def create_image(suffix):
         
         
             
-    bpy.ops.image.new(name=(image_name),width=im_width, height=im_height, generated_type='COLOR_GRID')
+    bpy.ops.image.new(name=(image_name),width=im_width, height=im_height, generated_type='COLOR_GRID', alpha=False)
+    
     
     print(("Image name is  - "), (image_name))
     # Set current texture name to the custom property
