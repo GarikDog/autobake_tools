@@ -55,7 +55,7 @@ class VIEW3D_PT_Autobake(Panel):
         layout.column().prop(attool, "image_height_prop_int", text="Image Height")
         layout.label(text="Bevel Shader:")
         layout.column().prop(attool, "bevel_samples_prop_int", text="Bevel Samples")
-        layout.column().prop(attool, "bevel_radius_prop_float", text="Bevel Radius (m)")
+        layout.column().prop(attool, "bevel_radius_prop_float", text="Bevel Radius")
         
         
         box = layout.box()
