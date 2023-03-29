@@ -14,7 +14,7 @@
     <img src="images/logo_f.png" alt="Logo" width="200" height="200">
   </a>
 
-  <h3 align="center">Autobake Tools</h3>
+  <h3 align="center">Auto-bake Tools</h3>
 
   <p align="center">
     Blender Add-on for Automatic Bevel Shader - Normal Map Baking
@@ -107,7 +107,7 @@ First You need to install Blender (You need the ***3,0,1*** or newer)
 
 4. At the top right of the Blender Preferences window, push the ***install...*** botton.
 
-5. Find the ***downloaded zip with Autobake Tools*** in file manager that appeared, select and click ***Install Add-on***.
+5. Find the ***downloaded zip with Auto-bake Tools*** in file manager that appeared, select and click ***Install Add-on***.
 
 6. Next, use the search in the Blender Preferences window (Directly under the ***Install...*** button), find the addon by name.
 
@@ -119,9 +119,9 @@ First You need to install Blender (You need the ***3,0,1*** or newer)
 ## Usage
 1. Select an object that need to bake in the scene. ***(Must be UV unwrapped)***
 
-2. If an object is selected, the ***Autobake Tools*** Panel will become available.
+2. If an object is selected, the ***Auto-bake Tools*** Panel will become available.
 
-3. Go to ***Autobake Tools*** Panel
+3. Go to ***Auto-bake Tools*** Panel
 
 4. Push the ***Create Bake Environment*** button
 
