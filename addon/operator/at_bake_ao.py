@@ -40,7 +40,7 @@ class AT_OP_Bake_ao(Operator):
     
     def execute(self, context):
         try:
-            image_name = create_image()
+            image_name = create_image("_ao")
             
             bpy.ops.object.bake(type='DIFFUSE')
             bpy.context.scene.render.bake.use_pass_direct = False

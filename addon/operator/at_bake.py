@@ -43,7 +43,7 @@ class AT_OP_Bake(Operator):
     
     def execute(self, context):
         try:
-            image_name = create_image()
+            image_name = create_image("_n")
             bpy.ops.object.bake(type='NORMAL')
             
         

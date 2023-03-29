@@ -70,7 +70,7 @@ def create_mat_env():
 
 
 
-def create_image():
+def create_image(suffix):
     
     scene = bpy.context.scene
     attool = scene.at_tool
@@ -94,12 +94,12 @@ def create_image():
     
     
     for image in images:
-        image_name = f'{obj.name}_{count_suffix}_n'
+        image_name = f'{obj.name}_{count_suffix}{suffix}'
         image_names.append(image.name)
         
         if image_name in image_names:
             count_suffix += 1
-            image_name = f'{obj.name}_{count_suffix}_n'
+            image_name = f'{obj.name}_{count_suffix}{suffix}'
         
         
         
@@ -203,7 +203,6 @@ def ao_distance_setting ():
     nodes = bpy.context.active_object.active_material.node_tree.nodes
     
     for node in nodes:
-        print("node type is: ", node.type)
         if node.type == 'AMBIENT_OCCLUSION':
             ao_node = node
             pass
