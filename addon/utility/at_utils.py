@@ -126,6 +126,25 @@ def setNodeLocation(node, x, y):
     if node.location:
         node.location = x, y
     
+
+def change_to_glossy_shader(statement: bool):
+    links = bpy.context.active_object.active_material.node_tree.links
+    nodes = bpy.context.active_object.active_material.node_tree.nodes
+    for node in nodes:
+        if node.type == 'BSDF_DIFFUSE':
+            diffuse_node = node
+        if node.type == 'BSDF_GLOSSY':
+            glossy_node = node
+        if node.type == 'OUTPUT_MATERIAL':
+            output_node = node
+        
+    
+    if statement:
+        links.new(glossy_node.outputs[0], output_node.inputs[0])
+    else:
+        links.new(diffuse_node.outputs[0], output_node.inputs[0])
+
+
 def create_shader_editor_env():
     
     
@@ -138,9 +157,10 @@ def create_shader_editor_env():
     
    
     
-        
+
     # Create nodes
     shader_node = nodes.new("ShaderNodeBsdfDiffuse")
+    shader_node_glossy = nodes.new("ShaderNodeBsdfGlossy")
     mat_output = nodes.new('ShaderNodeOutputMaterial')
     bevel_node = nodes.new("ShaderNodeBevel")
     image_texture_node = nodes.new("ShaderNodeTexImage")
@@ -148,6 +168,7 @@ def create_shader_editor_env():
     math_node = nodes.new("ShaderNodeMath")
     
     # Place nodes in correct position
+    setNodeLocation(shader_node_glossy, 0, 200)
     setNodeLocation(mat_output, 300, 25)
     setNodeLocation(bevel_node, -300, -565)
     setNodeLocation(image_texture_node, -900, 0)
@@ -157,10 +178,15 @@ def create_shader_editor_env():
     # Get node links
     links = bpy.context.active_object.active_material.node_tree.links
     
+    # Default glossy for glossy bsdf shader
+    default_glossy = 0.2 
+    
     # Link nodes
     links.new(bevel_node.outputs[0], shader_node.inputs[2])
+    links.new(bevel_node.outputs[0], shader_node_glossy.inputs[2])
     links.new(shader_node.outputs[0], mat_output.inputs[0])
     math_node.operation = 'POWER' # make power operation in the Math node (it always have Add by default)
+    shader_node_glossy.inputs[1].default_value = default_glossy
     math_node.inputs[1].default_value = attool.at_ao_exponentiation
     bevel_node.inputs[0].default_value = attool.bevel_samples_prop_int
     bevel_node.inputs[0].default_value = attool.bevel_radius_prop_float
@@ -169,6 +195,10 @@ def create_shader_editor_env():
     ambient_occulusion_node.inputs[1].default_value = attool.at_ao_distance
     links.new(ambient_occulusion_node.outputs[0], math_node.inputs[0])
     links.new(math_node.outputs[0], shader_node.inputs[0])
+    links.new(math_node.outputs[0], shader_node_glossy.inputs[0])
+    
+    
+    attool.at_glossy_preview = False
     
     for node in nodes:
         print (("I have this node:"), (node))
@@ -262,4 +292,31 @@ def showMessageBox(message='', title='Message box', icon='INFO'):
 
         bpy.context.window_manager.popup_menu(draw, title=title, icon=icon)
 
+
+def change_bake_normal():
+    scn = bpy.context.scene
+    # Set Bake Type to Normal
+    if not scn.cycles.bake_type == 'NORMAL':
+        scn.cycles.bake_type = 'NORMAL'
+    print ("Bake type setted to", scn.cycles.bake_type)
+       
+    # Set Selected to Active to False
+    if not scn.render.bake.use_selected_to_active == False:
+        scn.render.bake.use_selected_to_active = False
+    print ("Selected to Active setted to", scn.render.bake.use_selected_to_active)
+
+def change_bake_ao():
+    scn = bpy.context.scene
+    # Set Bake Type to AO
+    if not scn.cycles.bake_type == 'DIFFUSE':
+        scn.cycles.bake_type = 'DIFFUSE'
+    print ("Bake type setted to", scn.cycles.bake_type)
+    
+    if not scn.render.bake.use_pass_direct == False:
+        scn.render.bake.use_pass_direct = False
+        
+    if not scn.render.bake.use_pass_indirect == False:
+        scn.render.bake.use_pass_indirect = False
+        
+        
 

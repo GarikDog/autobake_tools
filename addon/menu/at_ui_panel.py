@@ -51,6 +51,7 @@ class VIEW3D_PT_Autobake(Panel):
        
         box = layout.box()
         box.operator("at.create_environment")
+        layout.column().prop(attool, "at_glossy_preview", text="Glossy Preview")
         layout.column().prop(attool, "image_width_prop_int", text="Image Width")
         layout.column().prop(attool, "image_height_prop_int", text="Image Height")
         layout.label(text="Bevel Shader:")

@@ -17,7 +17,7 @@
 import bpy
 from bpy.types import Operator
 
-from ..utility.at_utils import create_image,showMessageBox
+from ..utility.at_utils import create_image,showMessageBox, change_bake_ao
 
 
 class AT_OP_Bake_ao(Operator):
@@ -40,21 +40,23 @@ class AT_OP_Bake_ao(Operator):
     
     def execute(self, context):
         try:
+            scene = bpy.context.scene
+            attool = scene.at_tool
+            if attool.at_glossy_preview:
+                glossy_statement = True
+                attool.at_glossy_preview = False
+            change_bake_ao()
             image_name = create_image("_ao")
-            
             bpy.ops.object.bake(type='DIFFUSE')
-            bpy.context.scene.render.bake.use_pass_direct = False
-            bpy.context.scene.render.bake.use_pass_indirect = False
-
-
-        
-            
+  
             bpy.ops.wm.window_new()
             print(bpy.context.area)
             
             for area in bpy.context.screen.areas:
                 area.type = 'IMAGE_EDITOR'
                 area.spaces.active.image = bpy.data.images[image_name]
+            if glossy_statement:
+                attool.at_glossy_preview = True
             
         except Exception as e:
             e = ("Please check Bake Environment")

@@ -18,7 +18,7 @@
 import bpy
 from bpy.types import Operator
 
-from ..utility.at_utils import create_image, showMessageBox
+from ..utility.at_utils import create_image, showMessageBox, change_bake_normal
 
 
 
@@ -43,6 +43,7 @@ class AT_OP_Bake(Operator):
     
     def execute(self, context):
         try:
+            change_bake_normal()
             image_name = create_image("_n")
             bpy.ops.object.bake(type='NORMAL')
             
