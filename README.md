@@ -68,7 +68,10 @@ An easy to use Blender Add-on that allows you to bake Bevel Shader to the Normal
 * If You are working in Blender, this will save you a lot of time!
 * If You're not working in Blender but need to bake your bevels, this will save you even more time!
 
-![](https://github.com/GarikDog/autobake_tools/blob/main/images/baking_bevel.gif)
+
+![](https://github.com/GarikDog/autobake_tools/blob/main/images/baking_bevel_2.gif)
+![](https://github.com/GarikDog/autobake_tools/blob/main/images/show_marmoset.gif)
+![](https://github.com/GarikDog/autobake_tools/blob/main/images/show_substance.gif)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -129,7 +132,7 @@ First You need to install Blender (You need the ***3,0,1*** or newer)
 6. Push the ***Bake and Show Image*** button
 7. Wait... And That's All! You may save the Bake result Normal Map in Image Window that appeared
 
-You can look at this gif again:
+You can look at this gif:
 
 ![](https://github.com/GarikDog/autobake_tools/blob/main/images/baking_bevel.gif)
 
@@ -235,7 +238,7 @@ Project Link: [https://github.com/GarikDog/autobake_tools](https://github.com/Ga
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/GarikDog/autobake_tools.svg?style=for-the-badge
 [contributors-url]: https://github.com/GarikDog/autobake_tools/graphs/contributors
-[release-url]: https://github.com/GarikDog/autobake_tools/releases
+[release-url]: https://github.com/GarikDog/autobake_tools/releases/latest
 [release-shield]: https://img.shields.io/github/release/GarikDog/autobake_tools.svg?style=for-the-badge
 [stars-shield]: https://img.shields.io/github/stars/GarikDog/autobake_tools.svg?style=for-the-badge
 [stars-url]: https://github.com/GarikDog/autobake_tools/stargazers
