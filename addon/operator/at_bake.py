@@ -18,7 +18,8 @@
 import bpy
 from bpy.types import Operator
 
-from ..utility.at_utils import create_image
+from ..utility.at_utils import create_image, showMessageBox
+
 
 
 class AT_OP_Bake(Operator):
@@ -39,20 +40,26 @@ class AT_OP_Bake(Operator):
     
     
     
+    
     def execute(self, context):
+        try:
+            image_name = create_image()
+            bpy.ops.object.bake(type='NORMAL')
+            
         
-        image_name = create_image()
-        
-        bpy.ops.object.bake(type='NORMAL')
-        
-       
-        
-        bpy.ops.wm.window_new()
-        print(bpy.context.area)
-        
-        for area in bpy.context.screen.areas:
-            area.type = 'IMAGE_EDITOR'
-            area.spaces.active.image = bpy.data.images[image_name]
+            
+            bpy.ops.wm.window_new()
+            print(bpy.context.area)
+            
+            for area in bpy.context.screen.areas:
+                area.type = 'IMAGE_EDITOR'
+                area.spaces.active.image = bpy.data.images[image_name]
+        except Exception as e:
+            e = ("Please check Bake Environment")
+            showMessageBox(e, "Where am I?", 'ZOOM_ALL')
+            
         
         
         return{'FINISHED'}
+    
+    

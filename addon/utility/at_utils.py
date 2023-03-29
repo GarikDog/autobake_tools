@@ -197,5 +197,12 @@ def viewport_shading_setting (intensity: float):
     if bpy.context.space_data.shading.use_scene_world_render:
         bpy.context.space_data.shading.use_scene_world_render = False
         
+        
+def showMessageBox(message='', title='Message box', icon='INFO'):
+
+        def draw(self, context):
+            self.layout.label(text=message)
+
+        bpy.context.window_manager.popup_menu(draw, title=title, icon=icon)
 
 
