@@ -135,6 +135,9 @@ def create_shader_editor_env():
     nodes.clear()
     
     
+    # Set metalic for beautiful bevels view
+    metallic_value = 0.7
+    
         
     # Create nodes
     shader_node = nodes.new("ShaderNodeBsdfPrincipled")
@@ -158,7 +161,15 @@ def create_shader_editor_env():
     links.new(bevel_node.outputs[0], shader_node.inputs[22])
     links.new(shader_node.outputs[0], mat_output.inputs[0])
     math_node.operation = 'POWER' # make power operation in the Math node (it always have Add by default)
+    math_node.inputs[1].default_value = attool.at_ao_exponentiation
+    bevel_node.inputs[0].default_value = attool.bevel_samples_prop_int
+    bevel_node.inputs[0].default_value = attool.bevel_radius_prop_float
+    bevel_node.samples = attool.bevel_samples_prop_int
+    shader_node.inputs[6].default_value = metallic_value
+    ambient_occulusion_node.samples = attool.at_ao_samples
+    ambient_occulusion_node.inputs[1].default_value = attool.at_ao_distance
     links.new(ambient_occulusion_node.outputs[0], math_node.inputs[0])
+    links.new(math_node.outputs[0], shader_node.inputs[0])
     
     for node in nodes:
         print (("I have this node:"), (node))
@@ -170,20 +181,68 @@ def create_shader_editor_env():
 def bevel_samples_setting ():
     nodes = bpy.context.active_object.active_material.node_tree.nodes
     
-    bevel_node = nodes.get("Bevel")
+    for node in nodes:
+        if node.type == 'BEVEL':
+            bevel_node = node
+            pass
     scene = bpy.context.scene
-    attool = scene.at_tool
+    
     attool = scene.at_tool
     bevel_node.samples = attool.bevel_samples_prop_int
     
 def bevel_radius_setting ():
     nodes = bpy.context.active_object.active_material.node_tree.nodes
-    
-    bevel_node = nodes.get("Bevel")
+    for node in nodes:
+        if node.type == 'BEVEL':
+            bevel_node = node
+            pass
     scene = bpy.context.scene
-    attool = scene.at_tool
+    
     attool = scene.at_tool
     bevel_node.inputs[0].default_value = attool.bevel_radius_prop_float
+    
+def ao_distance_setting ():
+    nodes = bpy.context.active_object.active_material.node_tree.nodes
+    
+    for node in nodes:
+        print("node type is: ", node.type)
+        if node.type == 'AMBIENT_OCCLUSION':
+            ao_node = node
+            pass
+        
+    scene = bpy.context.scene
+    attool = scene.at_tool
+    
+    ao_node.inputs[1].default_value = attool.at_ao_distance
+    
+def ao_exponentiation_setting ():
+    nodes = bpy.context.active_object.active_material.node_tree.nodes
+    
+    for node in nodes:
+        if node.type == 'MATH' and node.operation == 'POWER':
+            power_node = node
+            pass
+    scene = bpy.context.scene
+    attool = scene.at_tool
+    
+    power_node.inputs[1].default_value = attool.at_ao_exponentiation
+    
+def ao_samples_setting ():
+    nodes = bpy.context.active_object.active_material.node_tree.nodes
+    
+    for node in nodes:
+        print("node type is: ", node.type)
+        if node.type == 'AMBIENT_OCCLUSION':
+            ao_node = node
+            pass
+        
+    scene = bpy.context.scene
+    attool = scene.at_tool
+    
+    ao_node.samples = attool.at_ao_samples
+    
+    
+
     
     
 def viewport_shading_setting (intensity: float):
