@@ -60,7 +60,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://github.com/GarikDog/autobake_tools/blob/main/images/screenshot.png)
 
-An easy to use Blender Add-on that allows you to bake Bevel Shader to the Normal Map in fully automatic mode.
+An easy to use Blender Add-on that allows you to bake Bevel Shader to the Normal Map, Ambient Occlusion to the AO Map in fully automatic mode. 
 
 
 
@@ -125,11 +125,21 @@ First You need to install Blender (You need the ***3,0,1*** or newer)
 4. Push the ***Create Bake Environment*** button
 
 5. Correct Values:
-* ***Bevel Samples*** - Number of rays to trace per belel shader evaluation.
-* ***Bevel Radius(m)*** - radius of traced bevels (in meters by default)
 * ***Image Width*** - Bake Image width
 * ***Image Height*** - Bake Image height
-6. Push the ***Bake and Show Image*** button
+
+For Bevel:
+* ***Glossy Preview*** - Sets the glossy shader to visually display Bevel effect
+* ***Bevel Samples*** - Number of rays to trace per belel shader evaluation.
+* ***Bevel Radius*** - radius of traced bevels (in meters by default)
+
+For AO:
+* ***AO Distance*** - distance of AO tracing
+* ***AO Samples*** - Number of rays to trace per Ambient Occlusion evaluation
+* ***AO Exponentiation*** - Exponentiation value of AO to increase contrast
+
+
+6. Push the ***Bake Normal and Show*** button for Bevel or ***Bake AO and Show*** for AO
 7. Wait... And That's All! You may save the Bake result Normal Map in Image Window that appeared
 
 You can look at this gif:
@@ -179,18 +189,28 @@ After these steps, GPU Compute will be available in most cases (If the hardware 
 
 2. Creates, places and conneсts ***Principled BSDF, Material Output, Bevel node, Image Texture node***
 
-***Bake and Show Image operator:***
+***Bake Normal and Show operator:***
 
 * Creates the ***Image*** with ***custom _n name ending***
 
 * Runs default  blender ***Bake*** operator with type ***Normal***
 
+***Bake AO and Show operator:***
+
+* Creates the ***Image*** with ***custom _ao name ending***
+
+* Runs default  blender ***Bake*** operator with type ***DIFFUSE***
+
 * Opens the window with the Result
 
-***Bevel Samples,
-Bevel Radius,
+***Glossy preview,
 Image Width,
-Image Height*** - custom properties. It's implementation allows you to change the values ​​at any time. The nodes will get them anyway.
+Image Height,
+Bevel Samples,
+Bevel Radius,
+AO Distance,
+AO Samples,
+AO Exponentiation*** - custom properties. It's implementation allows you to change the values ​​at any time. The nodes will get them anyway.
 
 
 
