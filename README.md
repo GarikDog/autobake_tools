@@ -2,6 +2,7 @@
 <!-- PROJECT SHIELDS -->
 [![Contributors][contributors-shield]][contributors-url]
 [![Stargazers][stars-shield]][stars-url]
+[![support][buy-shield]][buy-url]
 [![Release][release-shield]][release-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
@@ -101,6 +102,11 @@ First You need to install Blender (You need the ***3,0,1*** or newer)
 1. Download latest release of Autobake Tools:
 
 * [![Release][release-shield]][release-url]
+
+* You also can ❤:
+
+* [![support][buy-shield]][buy-url]
+
 2. Run Blender
 
 3. Go to ***Edit>Preferences Add-ons tab.***
@@ -275,3 +281,9 @@ Project Link: [https://github.com/GarikDog/autobake_tools](https://github.com/Ga
 [bpy-url]: https://pypi.org/project/bpy/
 [project/bpy]: https://img.shields.io/badge/bpy-0769AD?style=for-the-badge&logo=pypi&logoColor=white
 
+
+
+
+
+[buy-shield]:https://img.shields.io/badge/Blender%20Market-Support%20with%20a%20purchase-orange?style=for-the-badge&logo=appveyor
+[buy-url]:https://www.blendermarket.com/products/autobake-tools
