@@ -59,7 +59,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://github.com/GarikDog/autobake_tools/blob/main/images/screenshot.png)
+
 
 An easy to use Blender Add-on that allows you to bake Bevel Shader to the Normal Map, Ambient Occlusion to the AO Map in fully automatic mode. 
 
@@ -74,6 +74,7 @@ An easy to use Blender Add-on that allows you to bake Bevel Shader to the Normal
 ![](https://github.com/GarikDog/autobake_tools/blob/main/images/show_marmoset.gif)
 ![](https://github.com/GarikDog/autobake_tools/blob/main/images/show_substance.gif)
 ![](https://github.com/GarikDog/autobake_tools/blob/main/images/baking_ao.gif)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/GarikDog/autobake_tools/blob/main/images/screenshot.png)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
