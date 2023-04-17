@@ -31,7 +31,7 @@ class AT_OP_Create_Environment(Operator):
     def execute(self, context):
         obj = context.active_object
         atobjtool = obj.at_objtool
-        light_intensity = 0.2
+        light_intensity = 1
         
         
         viewport_shading_setting(light_intensity)

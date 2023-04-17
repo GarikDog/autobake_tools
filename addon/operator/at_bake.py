@@ -36,16 +36,16 @@ class AT_OP_Bake(Operator):
         if atobjtool.prepare_statement_prop_bool == True:
             return True
         return False
-    
-    
-    
-    
+
     
     def execute(self, context):
         try:
             change_bake_normal()
             image_name = create_image("_n")
             bpy.ops.object.bake(type='NORMAL')
+            
+            
+
             
         
             

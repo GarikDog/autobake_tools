@@ -19,6 +19,7 @@ import bpy
 
 def create_render_env_n():
     scn = bpy.context.scene
+    attool = scn.at_tool
     # Set cycles render engine if not selected
     if not scn.render.engine == 'CYCLES':
         scn.render.engine = 'CYCLES'
@@ -51,6 +52,17 @@ def create_render_env_n():
     if not scn.render.bake.use_selected_to_active == False:
         scn.render.bake.use_selected_to_active = False
     print ("Selected to Active setted to", scn.render.bake.use_selected_to_active)
+    
+    # Set custom bool dx property to correct value from Y channel
+    try:
+        if bpy.context.scene.render.bake.normal_g == 'NEG_Y':
+            attool.at_dx_normal = True
+        elif bpy.context.scene.render.bake.normal_g == 'POS_Y':
+            attool.at_dx_normal = False
+    except:
+        pass
+    
+
         
 def create_mat_env():
     obj = bpy.context.active_object
@@ -319,4 +331,13 @@ def change_bake_ao():
         scn.render.bake.use_pass_indirect = False
         
         
+def dx_normal_setting():
+    scene = bpy.context.scene
+    attool = scene.at_tool
+    if attool.at_dx_normal:
+        bpy.context.scene.render.bake.normal_g = 'NEG_Y'
+    else:
+        bpy.context.scene.render.bake.normal_g = 'POS_Y'
+    
+
 

@@ -16,7 +16,7 @@
 
 import bpy
 
-from ..utility.at_utils import bevel_samples_setting, bevel_radius_setting, ao_distance_setting, ao_exponentiation_setting, ao_samples_setting, change_to_glossy_shader
+from ..utility.at_utils import bevel_samples_setting, bevel_radius_setting, ao_distance_setting, ao_exponentiation_setting, ao_samples_setting, change_to_glossy_shader, dx_normal_setting
 
 def get_bevel_value(self):
     return self.id_data.get("at_tool.bevel_samples_prop_int", int(8))
@@ -84,6 +84,16 @@ def set_at_ao_samples(self, value):
     except:
         print("there are no Nodes by now")
         
+def get_dx_normal(self):
+    return self.id_data.get("at_dx_normal", bool(False))
+
+def set_dx_normal(self, value):
+    self.id_data["at_dx_normal"]=value
+    try:
+        dx_normal_setting()
+    except:
+        pass
+        
 
 
 class AT_Properties(bpy.types.PropertyGroup):
@@ -96,3 +106,4 @@ class AT_Properties(bpy.types.PropertyGroup):
     at_ao_exponentiation : bpy.props.FloatProperty(name="AO Exponentiation", soft_min=0.1, soft_max=10, default=1, step=0.001, precision=3, get=get_at_ao_exponentiation, set=set_at_ao_exponentiation)
     at_ao_samples : bpy.props.IntProperty(name="AO Samples", soft_min=2, soft_max=32, default=8, get=get_at_ao_samples, set=set_at_ao_samples)
     at_glossy_preview : bpy.props.BoolProperty(name="Glossy Preview", default=False, get=get_at_glossy_preview, set=set_at_glossy_preview)
+    at_dx_normal : bpy.props.BoolProperty(name="DX normal", default=False, get=get_dx_normal, set=set_dx_normal)
