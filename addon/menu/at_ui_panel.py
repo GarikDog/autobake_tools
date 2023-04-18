@@ -48,6 +48,7 @@ class VIEW3D_PT_Autobake(Panel):
         layout = self.layout
         scene = bpy.context.scene
         attool = scene.at_tool
+        job_statement = False
        
         box = layout.box()
         box.operator("at.create_environment")
@@ -63,7 +64,9 @@ class VIEW3D_PT_Autobake(Panel):
         row = layout.split(factor=0.5, align=False)
         
         
-        box.operator("at.bake")
+        bake = box.operator("at.bake")
+        
+    
         
         layout.label(text="Ambient Occlusion:")
         layout.column().prop(attool, "at_ao_distance", text="AO Distance")

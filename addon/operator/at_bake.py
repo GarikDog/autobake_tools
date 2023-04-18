@@ -38,29 +38,46 @@ class AT_OP_Bake(Operator):
         return False
 
     
+    
     def execute(self, context):
         try:
             change_bake_normal()
             image_name = create_image("_n")
-            bpy.ops.object.bake(type='NORMAL')
+            bpy.ops.object.bake('INVOKE_DEFAULT',  type='NORMAL')
+            
+
+                
+                
+            def run_every_01_sec():
+                if bpy.app.is_job_running('OBJECT_BAKE') == False:
+                    print("op end")
+                    bpy.ops.wm.window_new()
+                    print(bpy.context.area)
+                    
+                    for area in bpy.context.screen.areas:
+                        area.type = 'IMAGE_EDITOR'
+                        area.spaces.active.image = bpy.data.images[image_name]
+                    bpy.app.timers.unregister(run_every_01_sec)
+                else:
+                    print("op running")
+                return 0.1
+            
+            bpy.app.timers.register(run_every_01_sec)
+                
+            
+           
+    
             
             
 
             
-        
-            
-            bpy.ops.wm.window_new()
-            print(bpy.context.area)
-            
-            for area in bpy.context.screen.areas:
-                area.type = 'IMAGE_EDITOR'
-                area.spaces.active.image = bpy.data.images[image_name]
         except Exception as e:
             e = ("Please check Bake Environment. Please select an Object if it's not selected")
             showMessageBox(e, "Where am I?", 'ZOOM_ALL')
             
         
-        
         return{'FINISHED'}
+    
+    
     
     

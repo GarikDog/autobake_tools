@@ -107,3 +107,4 @@ class AT_Properties(bpy.types.PropertyGroup):
     at_ao_samples : bpy.props.IntProperty(name="AO Samples", soft_min=2, soft_max=32, default=8, get=get_at_ao_samples, set=set_at_ao_samples)
     at_glossy_preview : bpy.props.BoolProperty(name="Glossy Preview", default=False, get=get_at_glossy_preview, set=set_at_glossy_preview)
     at_dx_normal : bpy.props.BoolProperty(name="DX normal", default=False, get=get_dx_normal, set=set_dx_normal)
+    
