@@ -57,7 +57,7 @@ class VIEW3D_PT_Autobake(Panel):
         layout.label(text="Bevel Shader:")
         layout.column().prop(attool, "bevel_samples_prop_int", text="Bevel Samples")
         layout.column().prop(attool, "bevel_radius_prop_float", text="Bevel Radius")
-        layout.column().prop(attool, "at_dx_normal", text="DX normal")
+        layout.column().prop(attool, "at_dx_normal", text="DirectX Normal")
         
         box = layout.box()
         row = layout.split(factor=0.5, align=False)
