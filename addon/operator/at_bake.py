@@ -48,21 +48,18 @@ class AT_OP_Bake(Operator):
 
                 
                 
-            def run_every_01_sec():
+            def timer_to_create_image_window():
                 if bpy.app.is_job_running('OBJECT_BAKE') == False:
-                    print("op end")
                     bpy.ops.wm.window_new()
                     print(bpy.context.area)
                     
                     for area in bpy.context.screen.areas:
                         area.type = 'IMAGE_EDITOR'
                         area.spaces.active.image = bpy.data.images[image_name]
-                    bpy.app.timers.unregister(run_every_01_sec)
-                else:
-                    print("op running")
+                    bpy.app.timers.unregister(timer_to_create_image_window)
                 return 0.1
-            
-            bpy.app.timers.register(run_every_01_sec)
+
+            bpy.app.timers.register(timer_to_create_image_window)
                 
             
            

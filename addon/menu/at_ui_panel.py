@@ -19,7 +19,6 @@ import bpy
 from gpu_extras.presets import draw_texture_2d
 from bpy.types import Menu, Panel, UIList
 
-from ..utility.at_utils import bevel_samples_setting
 
 
 class VIEW3D_PT_Autobake(Panel):

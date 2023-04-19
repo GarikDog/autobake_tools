@@ -47,16 +47,24 @@ class AT_OP_Bake_ao(Operator):
                 attool.at_glossy_preview = False
             change_bake_ao()
             image_name = create_image("_ao")
-            bpy.ops.object.bake(type='DIFFUSE')
-  
-            bpy.ops.wm.window_new()
-            print(bpy.context.area)
+            bpy.ops.object.bake('INVOKE_DEFAULT', type='DIFFUSE')
+
             
-            for area in bpy.context.screen.areas:
-                area.type = 'IMAGE_EDITOR'
-                area.spaces.active.image = bpy.data.images[image_name]
-            if glossy_statement:
-                attool.at_glossy_preview = True
+            def timer_to_create_image_window():
+                if bpy.app.is_job_running('OBJECT_BAKE') == False:
+                    bpy.ops.wm.window_new()
+                    print(bpy.context.area)
+                    
+                    for area in bpy.context.screen.areas:
+                        area.type = 'IMAGE_EDITOR'
+                        area.spaces.active.image = bpy.data.images[image_name]
+                    if glossy_statement:
+                        attool.at_glossy_preview = True
+                return 0.1
+
+            bpy.app.timers.register(timer_to_create_image_window)
+            
+            
             
         except Exception as e:
             e = ("Please check Bake Environment. Please select an Object if it's not selected")

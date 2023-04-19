@@ -339,13 +339,3 @@ def dx_normal_setting():
     else:
         bpy.context.scene.render.bake.normal_g = 'POS_Y'
     
-    
-def create_image_window(image_end:str):
-    image_name = create_image(image_end)
-    bpy.ops.wm.window_new()
-    print(bpy.context.area)
-    
-    for area in bpy.context.screen.areas:
-        area.type = 'IMAGE_EDITOR'
-        area.spaces.active.image = bpy.data.images[image_name]
-
