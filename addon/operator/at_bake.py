@@ -49,7 +49,7 @@ class AT_OP_Bake(Operator):
                 
                 
             def timer_to_create_image_window():
-                if bpy.app.is_job_running('OBJECT_BAKE') == False:
+                if (bpy.app.is_job_running('OBJECT_BAKE') == False):
                     bpy.ops.wm.window_new()
                     print(bpy.context.area)
                     

@@ -26,6 +26,7 @@ class AT_OP_Bake_ao(Operator):
     bl_description = "Bake Ambient Occlusion map. Then show the result image"
     
     
+    
     @classmethod
     
     def poll(cls, context):
@@ -39,27 +40,26 @@ class AT_OP_Bake_ao(Operator):
     
     
     def execute(self, context):
+        
         try:
             scene = bpy.context.scene
             attool = scene.at_tool
             if attool.at_glossy_preview:
-                glossy_statement = True
                 attool.at_glossy_preview = False
             change_bake_ao()
             image_name = create_image("_ao")
             bpy.ops.object.bake('INVOKE_DEFAULT', type='DIFFUSE')
-
+            
             
             def timer_to_create_image_window():
+                
                 if bpy.app.is_job_running('OBJECT_BAKE') == False:
                     bpy.ops.wm.window_new()
                     print(bpy.context.area)
-                    
                     for area in bpy.context.screen.areas:
                         area.type = 'IMAGE_EDITOR'
                         area.spaces.active.image = bpy.data.images[image_name]
-                    if glossy_statement:
-                        attool.at_glossy_preview = True
+                    bpy.app.timers.unregister(timer_to_create_image_window)
                 return 0.1
 
             bpy.app.timers.register(timer_to_create_image_window)
