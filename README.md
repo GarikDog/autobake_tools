@@ -3,6 +3,7 @@
 [![Contributors][contributors-shield]][contributors-url]
 [![Stargazers][stars-shield]][stars-url]
 [![support][buy-shield]][buy-url]
+[![Total Downloads](https://img.shields.io/github/downloads/GarikDog/autobake_tools/total?style=for-the-badge&logo=appveyor)](https://github.com/GarikDog/autobake_tools/releases)
 [![Release][release-shield]][release-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
