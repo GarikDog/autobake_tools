@@ -194,20 +194,19 @@ def create_shader_editor_env():
     default_glossy = 0.2 
     
     # Link nodes
-    links.new(bevel_node.outputs[0], shader_node.inputs[2])
-    links.new(bevel_node.outputs[0], shader_node_glossy.inputs[2])
+    links.new(bevel_node.outputs['Normal'], shader_node.inputs['Normal'])
+    links.new(bevel_node.outputs['Normal'], shader_node_glossy.inputs['Normal'])
     links.new(shader_node.outputs[0], mat_output.inputs[0])
     math_node.operation = 'POWER' # make power operation in the Math node (it always have Add by default)
-    shader_node_glossy.inputs[1].default_value = default_glossy
+    shader_node_glossy.inputs['Roughness'].default_value = default_glossy
     math_node.inputs[1].default_value = attool.at_ao_exponentiation
-    bevel_node.inputs[0].default_value = attool.bevel_samples_prop_int
-    bevel_node.inputs[0].default_value = attool.bevel_radius_prop_float
+    bevel_node.inputs['Radius'].default_value = attool.bevel_radius_prop_float
     bevel_node.samples = attool.bevel_samples_prop_int
     ambient_occulusion_node.samples = attool.at_ao_samples
-    ambient_occulusion_node.inputs[1].default_value = attool.at_ao_distance
-    links.new(ambient_occulusion_node.outputs[0], math_node.inputs[0])
-    links.new(math_node.outputs[0], shader_node.inputs[0])
-    links.new(math_node.outputs[0], shader_node_glossy.inputs[0])
+    ambient_occulusion_node.inputs['Distance'].default_value = attool.at_ao_distance
+    links.new(ambient_occulusion_node.outputs['Color'], math_node.inputs[0])
+    links.new(math_node.outputs[0], shader_node.inputs['Color'])
+    links.new(math_node.outputs[0], shader_node_glossy.inputs['Color'])
     
     
     attool.at_glossy_preview = False
