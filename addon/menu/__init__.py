@@ -16,10 +16,15 @@
 
 import bpy
 
-from .at_ui_panel import VIEW3D_PT_Autobake
+from .at_ui_panel import VIEW3D_PT_Autobake, VIEW3D_PT_Sampling, VIEW3D_PT_sampling_viewport, VIEW3D_PT_sampling_viewport_denoise, VIEW3D_PT_sampling_render, VIEW3D_PT_sampling_render_denoise
 
 classes = (
     VIEW3D_PT_Autobake,
+    VIEW3D_PT_Sampling,
+    VIEW3D_PT_sampling_viewport,
+    VIEW3D_PT_sampling_viewport_denoise,
+    VIEW3D_PT_sampling_render,
+    VIEW3D_PT_sampling_render_denoise
 )
 
 

@@ -13,6 +13,12 @@
 #   See the License for the specific language governing permissions and         #
 #   limitations under the License.                                              #
  ###############################################################################
+# SPDX-FileCopyrightText: 2011-2022 Blender Foundation
+#
+# SPDX-License-Identifier: Apache-2.0
+
+
+# Igor Subachev (GarikDog) :
 
 import bpy
 
@@ -338,3 +344,18 @@ def dx_normal_setting():
     else:
         bpy.context.scene.render.bake.normal_g = 'POS_Y'
     
+
+
+#Blender Foundation:
+
+def get_effective_preview_denoiser(context):
+    scene = context.scene
+    cscene = scene.cycles
+
+    if cscene.preview_denoiser != "AUTO":
+        return cscene.preview_denoiser
+
+    if context.preferences.addons[__package__].preferences.get_devices_for_type('OPTIX'):
+        return 'OPTIX'
+
+    return 'OIDN'
