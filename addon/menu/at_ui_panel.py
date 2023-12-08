@@ -166,11 +166,11 @@ class VIEW3D_PT_sampling_viewport_denoise(Panel):
 
     @classmethod
     
-    # def poll(cls, context):
-    #     if context.active_object != None:
-    #         if context.active_object.type == 'MESH' and context.scene.render.engine == 'CYCLES':
-    #             return True
-    #     return False
+    def poll(cls, context):
+        if context.active_object != None:
+            if context.active_object.type == 'MESH' and context.scene.render.engine == 'CYCLES':
+                return True
+        return False
     
     
     def invoke(self, context, event):
@@ -263,11 +263,11 @@ class VIEW3D_PT_sampling_render_denoise(Panel):
 
     @classmethod
     
-    # def poll(cls, context):
-    #     if context.active_object != None:
-    #         if context.active_object.type == 'MESH' and context.scene.render.engine == 'CYCLES':
-    #             return True
-    #     return False
+    def poll(cls, context):
+        if context.active_object != None:
+            if context.active_object.type == 'MESH' and context.scene.render.engine == 'CYCLES':
+                return True
+        return False
     
     
     def invoke(self, context, event):
