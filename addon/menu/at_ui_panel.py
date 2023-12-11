@@ -88,17 +88,18 @@ class VIEW3D_PT_Sampling(Panel):
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
     bl_category = "Auto-bake Tools"
+    bl_options = {'DEFAULT_CLOSED'}
 
     
     
     
     @classmethod
     
-    # def poll(cls, context):
-    #     if context.active_object != None:
-    #         if context.active_object.type == 'MESH' and context.scene.render.engine == 'CYCLES':
-    #             return True
-    #     return False
+    def poll(cls, context):
+        if context.active_object != None:
+            if context.active_object.type == 'MESH' and context.scene.render.engine == 'CYCLES':
+                return True
+        return False
     
     
     def invoke(self, context, event):
