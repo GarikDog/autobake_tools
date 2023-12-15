@@ -107,10 +107,7 @@ class VIEW3D_PT_Sampling(Panel):
     
 
     def draw(self, context):
-        layout = self.layout
-        
-        #scene = bpy.context.scene
-        #attool = scene.at_tool
+        pass
         
 class VIEW3D_PT_sampling_viewport(Panel):
     bl_idname = "VIEW3D_PT_sampling_viewport"
