@@ -194,7 +194,7 @@ After these steps, GPU Compute will be available in most cases (If the hardware 
 
 1. Cleares Nodes
 
-2. Creates, places and conneсts ***Principled BSDF, Material Output, Bevel node, Image Texture node***
+2. Creates, places and conneсts ***Glossy BSDF, Diffuse BSDF, Material Output, Bevel node, Image Texture node, Ambient Occlusion, Math(Power)***
 
 ***Bake Normal and Show operator:***
 
