@@ -32,7 +32,9 @@ class AT_OP_Bake_ao(Operator):
     def poll(cls, context):
         obj = context.active_object
         atobjtool = obj.at_objtool
-        if atobjtool.prepare_statement_prop_bool == True:
+        if bpy.app.is_job_running('OBJECT_BAKE'):
+            return False
+        elif atobjtool.prepare_statement_prop_bool:
             return True
         return False
     
